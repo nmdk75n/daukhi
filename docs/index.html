@@ -22,6 +22,44 @@
         font-family:'Calibri';font-size: 150%;word-wrap:break-word;text-align: justify;margin-left: 3%;margin-right: 2%;margin-bottom: 5%;
     }
     </style>
+    <script type="text/javascript">
+        parts = [];
+        // name a b c d ans unique
+        qs = [
+            ["Có mấy loại mạch dầu", 3, 4, 5, 7, 1, true],
+            ["Ở Việt Nam có bao nhiêu nhà máy lọc dầu ", 1, 2, 3, 4, 2, true],
+            ["Đỉnh điểm Việt Nam sản xuất bao nhiêu thùng dầu mỗi ngày ", 364000, 200000, 399000, 400000, 3, true],
+        ]
+        d = 0
+        ds = ["f", "A", "B", "C", "D"]
+        function q() {
+            document.getElementById("atext").innerHTML = "";
+            count = Number(document.getElementById("myInput").value);
+            if (parts.length === 0) {
+                parts = new Array(count);
+                for (let i = 1; i<= count;i++) parts[i-1] = i;
+                console.log(parts)
+            }
+            p = parts[Math.floor(Math.random()*parts.length)];
+            document.getElementById("nametext").innerHTML = `Câu hỏi dành cho bạn học sinh thứ ${p}`;
+            parts = parts.filter(e => e!==p);
+            qt = qs[Math.floor(Math.random()*qs.length)]
+            console.log(qs)
+            console.log(qt);
+            if (qt[6] == true) qs = qs.filter(e => e!=qt);
+            document.getElementById("qtext").innerHTML = `
+${qt[0]}: <br>
+A : ${qt[1]} <br>
+B : ${qt[2]} <br>
+C : ${qt[3]} <br>
+D : ${qt[4]} <br>
+            `;
+            d = qt[5]
+        }
+        function show() {
+            document.getElementById("atext").innerHTML = `Đáp án là : ${ds[d]}`;
+        }
+    </script>
 </head>
 <body>
     <a href="#mt" id="hyper" style="font-size: 125%;font-family: Calibri;position: fixed;margin-left: 85%;;width: 12%; height: 10%;border:2px groove black; text-align: center;background-color: rgb(199, 248, 192);margin-top: -4%;">
@@ -442,12 +480,20 @@ Liên hợp lọc dầu Nghi Sơn mới hơn, được xây dựng ở Nghi Sơn
         <text style="display: block;margin: 0 auto;text-align: center;font-weight: bold;">Liên hợp lọc dầu Nghi Sơn
         </text><br>
 </div>
+<div id="tlch" style="background-color: rgb(194, 248, 255);margin: 5%;">
+    <h2 style="text-align: left;font-family: Calibri;font-size: 400%;border:5px rgb(33, 145, 153);border-style: none none none solid ;; background-color: rgb(166, 230, 225);color: rgb(20, 63, 66);">Câu hỏi tự động</h2>
+    <input type="text" id="myInput" placeholder="Điền số học sinh trong lớp..">
+    <button onclick="q()">Tạo câu hỏi
+    </button>
+    <br>
+    <text id="nametext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(29, 158, 243);"></text>
+    <p id="qtext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(29, 158, 243);"></p>
+    <text id="atext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(29, 158, 243);"></text>
+    <button onclick="show()">Xem đáp án
+
+    </button>
+</div>
 </center>
-
-
-
-<script>
-</script>
 
 </body>
 </html>
