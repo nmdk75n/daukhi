@@ -46,8 +46,7 @@
             document.getElementById("nametext").innerHTML = `Câu hỏi dành cho bạn học sinh thứ ${p}`;
             parts = parts.filter(e => e!==p);
             qt = qs[Math.floor(Math.random()*qs.length)]
-            console.log(qs)
-            console.log(qt);
+
             if (qt[6] == true) qs = qs.filter(e => e!=qt);
             document.getElementById("qtext").innerHTML = `
 ${qt[0]}: <br>
@@ -391,12 +390,13 @@ Nhiên liệu từ dầu thô có rất nhiều loại và có thể được s�
 
             </text><br>
         Một phần lớn khác của khí nhà kính là gia tăng acid carbonic (H2CO3) do lượng lớn CO2 trong khí quyển, gây ảnh hưởng lớn đến môi trường và môi trường biển.
-        </p>
-        <br><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mean-seawater-ph.png/800px-Mean-seawater-ph.png"  width="510" height="350" style="display: block;margin: 0 auto;text-align: center;"></img>
             <text style="display: block;margin: 0 auto;text-align: center;font-weight: bold;">Độ pH của nước biển. Càng thấp đồng nghĩa với việc độ acid càng cao
 
             </text>
+        </p>
+        <br><br>
+        
 <h4 id="mkt" style="font-family:'Calibri';font-size: 275%;text-align:left;margin-left: 3%;color: rgb(19, 102, 12);font-weight: bolder;">
             2 - Khai thác
 </h4>
@@ -492,8 +492,7 @@ Liên hợp lọc dầu Nghi Sơn mới hơn, được xây dựng ở Nghi Sơn
     <p id="qtext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(29, 158, 243);"></p>
     <text id="atext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(29, 158, 243);"></text>
     <button onclick="show()">Xem đáp án
-
-    </button>
+</button>
 </div>
 </center>
 
